@@ -7,18 +7,20 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Spa } from "@mui/icons-material";
+import './Footer.css';
 
 const Links = ["Home", "Our Services", "About us", "Contact us"];
 
 function Footer() {
   return (
-    <Container maxWidth>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={3}>
+    <Container maxWidth className="Footer-container">
+      <Grid container spacing={4} className="Footer-content">
+        <Grid item xs={12} md={3} >
           <img
             src="https://www.bisunelectric.in/wp-content/uploads/2022/05/Bisun-Final-Logo_W2-2048x781.png"
             alt="LOGO"
             srcset=""
+            className="Footer-Logo"
           />
         </Grid>
         <Grid item xs={12} md={3}>

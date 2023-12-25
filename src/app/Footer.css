@@ -1,0 +1,13 @@
+:root {
+    --Footer-Container: #1e90ff;
+    --Footer-Fonts: #ffffff;
+  }
+.Footer-container{
+    background-color:var(--Footer-Container) ;
+}
+/* .Footer-content{
+    padding: 10px 60px;
+} */
+.Footer-Logo{
+    width: 180px;
+}
