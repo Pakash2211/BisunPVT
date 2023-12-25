@@ -15,9 +15,9 @@ export default function CounterUp() {
             {
               countupData?.map((ele) =>(
                 <div className='counterup-single'>
-                <h1>
+                <p>
                 <CountUp  start={0} end = {ele?.count} duration={2} delay={0}/> +{ele?.unit}
-                </h1>
+                </p>
                 <h4>{ele?.title}</h4>
                 </div>
               ))

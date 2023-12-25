@@ -29,4 +29,28 @@
     border-left: 1px solid rgba(204, 188, 188, 0.97);
  
 }
+.counterup-single p {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+  
+}
 
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .counterup-show-section{
+        display: flex;
+        flex-direction: column;
+   
+     
+    }
+    .counterup-single{
+        width: 100%;
+        padding: 10px;
+    }
+    .counterup-single:nth-child(2){
+        padding: 20px 0px;
+
+    }
+  }
