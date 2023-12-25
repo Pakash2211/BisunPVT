@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import * as React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
@@ -15,13 +15,22 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Link from "next/link";
+import "./Header.css";
+import ThemeSwitcher from "../core/ThemeSwitcher/ThemeSwitcher";
 
 const drawerWidth = 240;
-const navItems = ["Home", "Our Services", "About us", "Contact us"];
+const navItems = [
+  { title: "Home", url: "/" },
+  { title: "Our Services", url: "/ourservice" },
+  { title: "About us", url: "/about" },
+  { title: "Contact us", url: "/contact" },
+];
 
 function Header(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -34,13 +43,16 @@ function Header(props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {navItems?.length > 0 &&
+          navItems?.map((item, index) => (
+            <ListItem key={index} disablePadding>
+              <Link href={item?.url}>
+                <ListItemButton sx={{ textAlign: "center" }}>
+                  <ListItemText primary={item?.title} />
+                </ListItemButton>
+              </Link>
+            </ListItem>
+          ))}
       </List>
     </Box>
   );
@@ -51,7 +63,10 @@ function Header(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar
+        component="nav"
+        className={isDarkTheme ? "navbar-dark" : "navbar"}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -67,14 +82,29 @@ function Header(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            <Link
+              href="/"
+              className={isDarkTheme ? "navbar-dark-text" : "navbar-text"}
+            >
+              MUI
+            </Link>
           </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
-              </Button>
-            ))}
+          <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+            {navItems?.length > 0 &&
+              navItems.map((item, index) => (
+                <Button key={index} sx={{ color: "#fff" }}>
+                  <Link
+                    href={item?.url}
+                    className={isDarkTheme ? "navbar-dark-text" : "navbar-text"}
+                  >
+                    {item?.title}
+                  </Link>
+                </Button>
+              ))}
+            <ThemeSwitcher
+              setIsDarkTheme={setIsDarkTheme}
+              isDarkTheme={isDarkTheme}
+            />
           </Box>
         </Toolbar>
       </AppBar>

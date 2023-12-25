@@ -1,4 +1,3 @@
-
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
@@ -8,12 +7,18 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const themes = {
+    light: "public/light.css",
+    dark: "public/dark.css",
+  };
   return (
     <html lang="en">
       <body>
+        {/* <ThemeSwitcherProvider defaultTheme="light" themeMap={themes}> */}
         <Header />
         {children}
         <Footer />
+        {/* </ThemeSwitcherProvider> */}
       </body>
     </html>
   );
