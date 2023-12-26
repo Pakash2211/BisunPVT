@@ -5,7 +5,7 @@ import Image from "next/image";
 function ThemeSwitcher({ isDarkTheme, setIsDarkTheme }) {
   //   const { switcher, themes, currentTheme, status } = useThemeSwitcher();
   return (
-    <div>
+    <div className="theme-switcher-div">
       {!isDarkTheme && (
         <Image
           src="/moon.png"

@@ -1,3 +1,8 @@
+.theme-switcher-div {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 #toggle_checkbox {
   display: none;
 }

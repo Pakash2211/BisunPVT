@@ -37,16 +37,34 @@ function Header(props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
-      <Divider />
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{ textAlign: "center" }}
+      className={isDarkTheme ? "drawer-dark" : "drawer"}
+    >
+      <div className="sidenar-drawer">
+        <Typography
+          variant="h6"
+          sx={{ my: 2 }}
+          className={isDarkTheme ? "navbar-dark-text" : "navbar-text"}
+        >
+          MUI
+        </Typography>
+        <ThemeSwitcher
+          setIsDarkTheme={setIsDarkTheme}
+          isDarkTheme={isDarkTheme}
+        />
+      </div>
+
+      <Divider className={isDarkTheme ? "divider-dark" : "divider"} />
       <List>
         {navItems?.length > 0 &&
           navItems?.map((item, index) => (
             <ListItem key={index} disablePadding>
-              <Link href={item?.url}>
+              <Link
+                href={item?.url}
+                className={isDarkTheme ? "drawer-link-dark" : "drawer-link"}
+              >
                 <ListItemButton sx={{ textAlign: "center" }}>
                   <ListItemText primary={item?.title} />
                 </ListItemButton>
@@ -74,6 +92,7 @@ function Header(props) {
             edge="start"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
+            className={isDarkTheme ? "menu-icon-dark" : "menu-icon"}
           >
             <MenuIcon />
           </IconButton>
@@ -122,6 +141,7 @@ function Header(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              color: "red",
             },
           }}
         >

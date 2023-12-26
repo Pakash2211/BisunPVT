@@ -44,6 +44,13 @@
   --fixed-width: 620px;
 }
 
+.sidenar-drawer {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
 /* Light Theme */
 .navbar {
   background-color: var(--navbar-color);
@@ -52,11 +59,37 @@
 .navbar-text {
   color: var(--navbar-text-color);
 }
+.menu-icon {
+  color: var(--navbar-text-color);
+}
+.drawer {
+  background-color: var(--navbar-color);
+}
+.divider {
+  background-color: var(--navbar-text-color);
+}
+.drawer-link {
+  width: 100%;
+  color: var(--navbar-text-color);
+}
 
 /* Dark Theme */
 .navbar-dark {
   background-color: var(--navbar-dark-color);
 }
 .navbar-dark-text {
+  color: var(--navbar-dark-text-color);
+}
+.menu-icon-dark {
+  color: var(--navbar-dark-text-color);
+}
+.drawer-dark {
+  background-color: var(--navbar-dark-color);
+}
+.divider-dark {
+  background-color: var(--navbar-dark-text-color);
+}
+.drawer-link-dark {
+  width: 100%;
   color: var(--navbar-dark-text-color);
 }
