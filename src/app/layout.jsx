@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       <body>
         {/* <ThemeSwitcherProvider defaultTheme="light" themeMap={themes}> */}
         <Header />
-        {children}
+        <div>{children}</div>
         <Footer />
         {/* </ThemeSwitcherProvider> */}
       </body>
